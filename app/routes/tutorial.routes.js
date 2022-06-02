@@ -1,4 +1,3 @@
-const {findAll} = require("../controllers/tutorial.controller");
 module.exports = app => {
     const tutorials = require("../controllers/tutorial.controller.js");
     let router = require("express").Router();
@@ -6,5 +5,6 @@ module.exports = app => {
     // Create a new Tutorial
     router.post("/", tutorials.create);
     router.get("/", tutorials.findAll);
+    router.get("/:id", tutorials.findOne);
     app.use('/api/tutorials', router);
 };
